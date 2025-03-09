@@ -7,7 +7,6 @@ import TabViewInfo from "../tabview/TabView";
 import {RouteProp, useNavigation, useRoute} from "@react-navigation/native";
 import {NativeStackNavigationProp} from "@react-navigation/native-stack";
 import {RootStackParamlist} from "../../../../App";
-import {DetallesYokaiInterface} from "../../../domain/entities/Yokai";
 
 type DetailYoKaiRouteProp = RouteProp<RootStackParamlist, 'DetailYoKai'>;
 
@@ -15,6 +14,7 @@ const DetailYoKai = () => {
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamlist>>();
     const route = useRoute<DetailYoKaiRouteProp>();
     const { yokai } = route.params;
+
     return (
         <View style={styles.container}>
             <View style={styles.topSection}>
@@ -33,7 +33,7 @@ const DetailYoKai = () => {
                     text={yokai.yokai.rango.name}
                     icon={{uri: yokai.yokai.rango.image}}/>
             </View>
-            <TabViewInfo/>
+            <TabViewInfo yokai={yokai}/>
         </View>
     );
 };

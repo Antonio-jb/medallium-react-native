@@ -18,7 +18,15 @@ export const AppColors = {
     botonTribus: "#DF89BA",
     botonElementos: "#6ABE4E",
     botonRango: "#8B87C0",
-    botonFase: "#28BBEE"
+    botonFase: "#28BBEE",
+    elementoAgua: "#6CBBBD",
+    elementoFuego: "#B65F60",
+    elementoHielo: "#305C76",
+    elementoViento: "#74CEA7",
+    elementoTierra: "#AC9B7A",
+    elementoRelampago: "#D9BD57",
+    elementoAbsorcion: "#C792D0",
+    elementoSanacion: "#A1C595",
 }
 
 export const AppFonts = {

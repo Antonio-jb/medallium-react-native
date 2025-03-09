@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         alignItems: "flex-start",
     },
     navbarCenter: {
-        flex: 2,
+        flex: 1,
         alignItems: "center",
     },
     navbarRight: {
@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
         borderRadius: 50
     },
     logo: {
-        width: 120,
-        height: 120,
+        width: 130,
+        height: 130,
         resizeMode: "contain",
     },
     containerBotones: {

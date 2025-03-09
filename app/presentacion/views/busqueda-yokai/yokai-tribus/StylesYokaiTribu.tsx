@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import {AppColors, AppFonts} from "../../themes/AppTheme";
+import {AppColors, AppFonts} from "../../../themes/AppTheme";
 
 export const styles = StyleSheet.create({
     container: {
@@ -32,4 +32,4 @@ export const styles = StyleSheet.create({
         fontFamily: AppFonts.bold
     },
 
-})
+});

@@ -30,8 +30,6 @@ const tribuColors: { [key: number]: string } = {
 };
 
 export const CardYoKai =  ({nombre, nombreJapones, iconHeart, imagenYoKai, iconTribu, iconElemento, iconRango, id_Tribu, onPressHeart}: Props) => {
-    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamlist>>();
-
     const borderColor = tribuColors[id_Tribu] || '#000000'; // Color por defecto si id_Tribu no se encuentra
     return(
         <View style={[styles.card, { borderColor }]}>

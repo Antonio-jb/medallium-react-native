@@ -23,12 +23,13 @@ export const styles = StyleSheet.create({
         maxHeight: "90%"
     },
     containerText: {
+        flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        marginHorizontal: 80,
     },
     textCentrado: {
         fontSize: 20,
         fontFamily: AppFonts.bold
     },
+
 })

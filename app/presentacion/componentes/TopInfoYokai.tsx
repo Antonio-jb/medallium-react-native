@@ -68,8 +68,7 @@ const styles = StyleSheet.create({
         width: "100%",
         justifyContent:"center",
         alignItems: "center",
-        bottom: 5,
-        marginBottom: 8
+        marginVertical: 6
     },
     tribuImagen: {
         width: 50,

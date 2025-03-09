@@ -21,7 +21,7 @@ const Elementos = () => {
     return(
         <View style={styles.container}>
             <View style={styles.topSection}>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
+                <TouchableOpacity onPress={() => navigation.navigate("DrawerNavigator")}>
                 <Image source={require("../../../../assets/back.png")} style={styles.icon}/>
                 </TouchableOpacity>
                 <View style={styles.containerText}>

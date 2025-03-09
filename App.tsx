@@ -13,6 +13,9 @@ import Elementos from "./app/presentacion/views/elementos/Elementos";
 import Saga from "./app/presentacion/views/saga/Saga";
 import Rango from "./app/presentacion/views/Rango/Rango";
 import DrawerNavigator from "./app/presentacion/navigation/DrawerNavigator";
+import YokaiTribu from "./app/presentacion/views/busqueda-yokai/yokai-tribus/YokaiTribu";
+import {YokaiRangos} from "./app/presentacion/views/busqueda-yokai/yokai-rangos/YokaiRangos";
+import {YokaiElementos} from "./app/presentacion/views/busqueda-yokai/yokai-elementos/YokaiElementos";
 
 const Stack=createNativeStackNavigator<RootStackParamlist>();
 export type RootStackParamlist={
@@ -25,6 +28,9 @@ export type RootStackParamlist={
     Elementos: undefined,
     Saga: undefined,
     Rango: undefined,
+    YokaiTribu: {idTribu: number},
+    YokaiRangos: {idRango: number},
+    YokaiElementos: {idElemento: number}
 }
 
 export default function App() {
@@ -51,6 +57,9 @@ export default function App() {
               <Stack.Screen name={"Elementos"} component={Elementos}></Stack.Screen>
               <Stack.Screen name={"Rango"} component={Rango}></Stack.Screen>
               <Stack.Screen name={"Saga"} component={Saga}></Stack.Screen>
+              <Stack.Screen name={"YokaiTribu"} component={YokaiTribu}></Stack.Screen>
+              <Stack.Screen name={"YokaiRangos"} component={YokaiRangos}></Stack.Screen>
+              <Stack.Screen name={"YokaiElementos"} component={YokaiElementos}></Stack.Screen>
           </Stack.Navigator>
       </NavigationContainer>
   );

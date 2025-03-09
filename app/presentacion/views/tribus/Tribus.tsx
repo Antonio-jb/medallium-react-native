@@ -27,7 +27,7 @@ const Tribus = () => {
     return(
         <View style={styles.container}>
             <View style={styles.topSection}>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
+                <TouchableOpacity onPress={() => navigation.navigate("DrawerNavigator")}>
                     <Image source={require("../../../../assets/back.png")} style={styles.icon}/>
                 </TouchableOpacity>
                 <View style={styles.containerText}>
@@ -68,7 +68,10 @@ const Tribus = () => {
                             </TouchableOpacity>
                             <TouchableOpacity
                                 style={[ModalTribuStyle.buttonVerYokais, ]}
-                                onPress={() => setModalVisible(!modalVisible)}>
+                                onPress={() => {
+                                    setModalVisible(false); // Cierra el modal
+                                    navigation.navigate("YokaiTribu", { idTribu: selectedItem?.id_Tribu });
+                                }}>
                                 <Text style={ModalTribuStyle.textVerYokais}> Ver Yo-kais de esta tribu</Text>
                             </TouchableOpacity>
                         </View>

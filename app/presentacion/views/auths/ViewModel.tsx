@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from "react";
-import {GetUserUseCase} from "../../../domain/useCases/UserLocal/GetUser";
 import {LoginAuthUseCase} from "../../../domain/useCases/auth/LoginAuth";
 import {SaveUserUseCase} from "../../../domain/useCases/UserLocal/SaveUser";
 import {UserLogin, UserLoginInterface} from "../../../domain/entities/User";
-import {RegisterAuthUseCase} from "../../../domain/useCases/auth/RegisterAuth";
 import {ApiDelivery} from "../../../data/sources/remote/api/ApiDelivery";
 import useUserLocalStorage from "../../hooks/useUserLocalStorage";
 
@@ -15,10 +13,6 @@ const LoginViewModel = () =>{
     })
     const {user, getUserSession} = useUserLocalStorage();
 
-    // const getUserSession = async () => {
-    //     const getUser = await GetUserUseCase();
-    //     console.log("Sesion del usuario: " + JSON.stringify(getUser));
-    // }
     const onChangeLogin = (property: string, value: any) => {
         setValues({...values, [property]: value})
     }

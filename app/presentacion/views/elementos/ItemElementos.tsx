@@ -14,7 +14,9 @@ const RenderElementos = ({ item, index }: Props) => {
             id_elementos={index}
             nombre={item.nombre}
             descripcion={item.descripcion}
-            image={{uri: item.image}}/>
+            image={{uri: item.image}}
+            item={item}
+        />
     );
 };
 

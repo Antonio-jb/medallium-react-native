@@ -40,6 +40,11 @@ const stylesCardElementos = StyleSheet.create({
         alignItems: 'flex-end',
         position: 'absolute',
         marginVertical: 17,
+    },
+    textVerYokais:{
+        fontSize: 18,
+        fontFamily: AppFonts.semiBold,
+        textDecorationLine: "underline"
     }
 })
 

@@ -4,7 +4,6 @@ import {ElementosInterface} from "../../../domain/entities/Yokai";
 
 export const ElementosViewModel = () => {
     const [elemento, setElemento] = useState<ElementosInterface[]>([]);
-    const [loading, setLoading] = useState(true);
 
     const getElementos = async () => {
         try {
@@ -14,15 +13,6 @@ export const ElementosViewModel = () => {
             console.error("Error fetching Elementos:", error);
         }
     }
-
-    useEffect(() => {
-        const fetchData = async () => {
-            await getElementos();
-            setLoading(false);
-        };
-
-        fetchData();
-    },[]);
 
 
     return {

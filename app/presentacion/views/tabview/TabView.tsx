@@ -1,36 +1,53 @@
 import * as React from 'react';
 import {View, useWindowDimensions, Text, StyleSheet} from 'react-native';
-import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
+import { TabView, TabBar } from 'react-native-tab-view';
 import DescripcionYokai from "./DescripcionYokai";
 import EstadisticasYokai from "./EstadisticasYokai";
 import EvolucionesYokai from "./EvolucionesYokai";
+import {DetallesYokaiInterface} from "../../../domain/entities/Yokai";
+import { DatosCombateViewModel } from './ViewModel';
 
-const FirstRoute = () => (
-    <DescripcionYokai
+interface Props{
+    yokai: DetallesYokaiInterface;
+}
 
-    />
-);
-const SecondRoute = () => (
-    <EstadisticasYokai
-        pv={342}
-        fuerza={172}
-        espiritu={48}
-        defensa={109}
-        velocidad={221}
-        total={892}
-    />
-);
+const FirstRoute = ({ yokai, datosCombate }: { yokai: DetallesYokaiInterface, datosCombate: any[] }) => {
+    const comidaArray = yokai.comida ? yokai.comida.split(",").map(item => item.trim()) : [];
+    const { habilidad } = datosCombate[0] || {};
+
+    return (
+        <DescripcionYokai
+            descripcion={yokai.descripcion}
+            comidaYK1={comidaArray[0]}
+            comidaYK2={comidaArray[1]}
+            comidaYK3={comidaArray[2]}
+            habilidad={habilidad}
+            medalla={{uri: yokai.medalla}}
+        />
+    )
+}
+
+const SecondRoute = ({datosCombate}: {datosCombate: any[]}) => {
+    const { puntosVida, fuerza, espiritacion, defensa, velocidad, total } = datosCombate[0] || {};
+    return(
+        <EstadisticasYokai
+            pv={puntosVida}
+            fuerza={fuerza}
+            espiritu={espiritacion}
+            defensa={defensa}
+            velocidad={velocidad}
+            total={total}
+        />
+    );
+};
 
 const ThirdRoute = () => (
-    <EvolucionesYokai
-        imageYokai={require("../../../../assets/espinyan.png")}
-        nombreYokai={"Espinyan"}
-    />
+    <EvolucionesYokai />
 );
 
-export default function TabViewInfo() {
+export default function TabViewInfo({yokai}: Props) {
+    const { datosCombate } = DatosCombateViewModel(yokai.yokai.id_Yokai);
     const layout = useWindowDimensions();
-
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
         { key: 'first', title: 'Descripción' },
@@ -38,11 +55,18 @@ export default function TabViewInfo() {
         { key: 'third', title: 'Evoluciones' },
     ]);
 
-    const renderScene = SceneMap({
-        first: FirstRoute,
-        second: SecondRoute,
-        third: ThirdRoute,
-    });
+    const renderScene = ({ route }: { route: { key: string } }) => {
+        switch (route.key) {
+            case 'first':
+                return <FirstRoute yokai={yokai} datosCombate={datosCombate} />;
+            case 'second':
+                return <SecondRoute datosCombate={datosCombate}/>;
+            case 'third':
+                return <ThirdRoute/>;
+            default:
+                return null;
+        }
+    };
 
     const renderTabBar = (props: any) => (
         <TabBar
@@ -62,6 +86,7 @@ export default function TabViewInfo() {
             onIndexChange={setIndex}
             initialLayout={{ width: layout.width }}
             style={styles.container}
+            lazy
         />
     );
 }

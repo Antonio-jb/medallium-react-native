@@ -37,6 +37,10 @@ const stylesRango = StyleSheet.create({
         fontSize: 20,
         fontFamily: AppFonts.bold
     },
+    containerCardRangos:{
+        width: "100%",
+        maxHeight: "90%"
+    }
 })
 
 export default stylesRango;

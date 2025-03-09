@@ -12,14 +12,14 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigator = () => {
     return (
             <Drawer.Navigator
-                initialRouteName="Home"
+                initialRouteName="Inicio"
                 screenOptions={{
                     drawerActiveBackgroundColor: '#F1F1F1',
                     drawerActiveTintColor: '#000'
                 }}
             >
                 <Drawer.Screen
-                    name="Home"
+                    name="Inicio"
                     component={Home}
                     options={{
                         headerShown: false,
@@ -41,7 +41,7 @@ const DrawerNavigator = () => {
                     )
                 }} />
                 <Drawer.Screen
-                    name="MisYokai"
+                    name="Mis Yokai"
                     component={MisYokais}
                     options={{
                         headerShown: false,
